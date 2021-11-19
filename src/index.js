@@ -6,21 +6,14 @@ import  ExchangeRateAPI from './ExchangeAPI.js';
 
 
 
-function clearFields() {
-  $('#amount').val("");
-  $('#showErrors').text("");
-  $('#showConversion').text("");
-}
+
 
 $(document).ready(function() {
   $('#exchangeButton').click(function(response) {
     let usDollars = $("#amount");
-    let currency= $("#pickCurrency").val();
-    console.log(currency);
-    clearFields();
     let promise = ExchangeRateAPI.getRate();
     promise.then(function() {
-      const body = JsonParse(response);
+      const body = JSON.parse(response);
       console.log(body);
       $('#showConversion').text(`$${usDollars} is ${body.conversion_rates}`);
     }, function(error) {
