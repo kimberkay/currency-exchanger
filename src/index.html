@@ -1,11 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
-  <title>Document</title>
+  <title>Currency Exchanger</title>
 </head>
 <body>
   <div class="container">
-    <p>Hello World!</p>
+    <h1>Currency Exchanger</h1>
+    <h2>Convert your U.S. Dollars to another currency:</h2>
+    <form id="form-convert">
+      <label for="usdAmount">Enter Amount to Exchange: $</label>
+      <input id="amount" type="text">
+      <br>
+      <select class="form-control" id="pickCurrency">
+        <option value="AUD">Coffee</option>
+        <option value="EUR">Tea</option>
+        <option value="kombucha">Kombucha</option>
+        <option value="water">Water</option>
+        <option value="water">Water</option>
+      </select>
+    <button class="btn- btn-dark" id="exchangeButton">Get Current Temperature and Humidity</button>
+    <div class="showConversion"></div>
+    </form>
   </div>
 </body>
 </html>
