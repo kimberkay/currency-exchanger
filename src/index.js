@@ -10,11 +10,26 @@ function clearFields() {
   $('.showConversion').text("");
 }
 
+
 $(document).ready(function() {
   $('#form-convert').submit(function(event) {
     event.preventDefault();
     let usDollars = $("#amount").val();
     let currency = $("#pickCurrency").val();
+    function conversion(amount,currency) {
+        if (currency === AUD) {
+         return result.conversion_rates.AUD * usDollars;
+       } else if (currency === EUR) {
+          return result.conversion_rates.EUR * usDollars;
+        } else if (currency === JPY) {
+         return result.conversion_rates.JPY * usDollars;
+        } else if (currency === MXN) {
+          return result.conversion_rates.MXN * usDollars;
+        } else {
+          return result.conversion_rates.GBP * usDollars;
+        }
+      } 
+    clearFields();
     let promise = ExchangeRateAPI.getRate();
     promise.then(function(response) {
       const result = JSON.parse(response);
