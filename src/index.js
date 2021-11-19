@@ -15,15 +15,16 @@ function clearFields() {
 
 $(document).ready(function() {
   $('#exchangeButton').click(function() {
-    let currency= $("#pickCurrency").val();;
+    let usDollars = $("#amount");
+    let currency= $("#pickCurrency").val();
     clearFields();
-    let promise = WeatherService.getWeather(city);
+    let promise = ExchangeRateAPI.getRate(currency);
     promise.then(function(response) {
       const body = JSON.parse(response);
-      $('.showHumidity').text(`The humidity in ${city} is ${body.main.humidity}%`);
-      $('.showTemp').text(`The temperature in Kelvins is ${body.main.temp} degrees.`);
+      $('#showConversion').text(`$${usDollars} is ${body.conversion_rates.currency}`);
     }, function(error) {
       $('.showErrors').text(`There was an error processing your request: ${error}`);
+      console.log("made it!")
     });
   });
 });
