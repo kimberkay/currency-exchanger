@@ -4,24 +4,27 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import  ExchangeRateAPI from './ExchangeAPI.js';
 
-
-
-
+function clearFields() {
+  $('#amount').val("");
+  $('#showErrors').text("");
+  $('.showConversion').text("");
+}
 
 $(document).ready(function() {
   $('#form-convert').submit(function(event) {
     event.preventDefault();
-    console.log("here i am");
     let usDollars = $("#amount").val();
-    console.log(usDollars);
+    let currency = $(#pickCurrency).val();
     let promise = ExchangeRateAPI.getRate();
     promise.then(function(response) {
       const result = JSON.parse(response);
+      function convertCurrency(amount,rate) {
+        return result.conversion_rates.${currency} * usDollars;
+      }
       $('#showConversion').text(` is ${result.conversion_rates.AUD}`);
       console.log("made it!");
     }, function(error) {
       $('#showErrors').text(`There was an error processing your request: ${error}`);
-      console.log("made it!");
     });
   });
 });
