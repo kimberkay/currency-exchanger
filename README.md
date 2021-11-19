@@ -13,6 +13,15 @@
 * _jQuery_
 * _Git_
 * _GitHub repositories_
+* _Lint_
+* _Babel_
+* _Webpack_
+* _Node_
+* __
+* _Git_
+* _GitHub repositories_
+
+
 
 ## Description
 

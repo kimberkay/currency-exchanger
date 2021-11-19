@@ -14,13 +14,10 @@ $(document).ready(function() {
   $('#form-convert').submit(function(event) {
     event.preventDefault();
     let usDollars = $("#amount").val();
-    let currency = $(#pickCurrency).val();
+    let currency = $("#pickCurrency").val();
     let promise = ExchangeRateAPI.getRate();
     promise.then(function(response) {
       const result = JSON.parse(response);
-      function convertCurrency(amount,rate) {
-        return result.conversion_rates.${currency} * usDollars;
-      }
       $('#showConversion').text(` is ${result.conversion_rates.AUD}`);
       console.log("made it!");
     }, function(error) {
