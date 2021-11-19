@@ -20,9 +20,9 @@ $(document).ready(function() {
     clearFields();
     let promise = ExchangeRateAPI.getRate();
     promise.then(function() {
-      const body = JSON.parse(response);
+      const body = JsonParse(response);
       console.log(body);
-      $('#showConversion').text(`$${usDollars} is ${body.conversion_rates.currency}`);
+      $('#showConversion').text(`$${usDollars} is ${body.conversion_rates}`);
     }, function(error) {
       $('#showErrors').text(`There was an error processing your request: ${error}`);
       console.log("made it!");
