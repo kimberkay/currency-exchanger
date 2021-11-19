@@ -9,10 +9,12 @@ import  ExchangeRateAPI from './ExchangeAPI.js';
 
 
 $(document).ready(function() {
-  $('#exchangeButton').click(function(response) {
+  $('#form-convert').submit(function(event) {
+    event.preventDefault();
+    console.log("here i am");
     let usDollars = $("#amount");
     let promise = ExchangeRateAPI.getRate();
-    promise.then(function() {
+    promise.then(function(response) {
       const body = JSON.parse(response);
       console.log(body);
       $('#showConversion').text(`$${usDollars} is ${body.conversion_rates}`);
