@@ -1,14 +1,10 @@
-// import $ from 'jquery';
-import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './css/styles.css';
-import './exchangeAPI.js';
-
 import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-import WeatherService from './weather-service.js'
+import  ExchangeRateAPI from './exchangeAPI.js';
+
+
 
 function clearFields() {
   $('#location').val("");
@@ -18,8 +14,8 @@ function clearFields() {
 }
 
 $(document).ready(function() {
-  $('#weatherLocation').click(function() {
-    let city = $('#location').val();
+  $('#exchangeButton').click(function() {
+    let currency= $("#pickCurrency").val();;
     clearFields();
     let promise = WeatherService.getWeather(city);
     promise.then(function(response) {
