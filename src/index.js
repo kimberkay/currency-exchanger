@@ -7,10 +7,9 @@ import  ExchangeRateAPI from './ExchangeAPI.js';
 
 
 function clearFields() {
-  $('#location').val("");
-  $('.showErrors').text("");
-  $('.showHumidity').text("");
-  $('.showTemp').text("");
+  $('#amount').val("");
+  $('#showErrors').text("");
+  $('#showConversion').text("");
 }
 
 $(document).ready(function() {
@@ -19,12 +18,13 @@ $(document).ready(function() {
     let currency= $("#pickCurrency").val();
     console.log(currency);
     clearFields();
-    let promise = ExchangeRateAPI.getRate(currency);
+    let promise = ExchangeRateAPI.getRate();
     promise.then(function() {
       const body = JSON.parse(response);
+      console.log(body);
       $('#showConversion').text(`$${usDollars} is ${body.conversion_rates.currency}`);
     }, function(error) {
-      $('.showErrors').text(`There was an error processing your request: ${error}`);
+      $('#showErrors').text(`There was an error processing your request: ${error}`);
       console.log("made it!");
     });
   });
