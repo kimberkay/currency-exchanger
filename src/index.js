@@ -15,9 +15,9 @@ $(document).ready(function() {
     let usDollars = $("#amount");
     let promise = ExchangeRateAPI.getRate();
     promise.then(function(response) {
-      const body = JSON.parse(response);
-      console.log(body);
-      $('#showConversion').text(`$${usDollars} is ${body.conversion_rates}`);
+      const result = JSON.parse(response);
+      $('#showConversion').text(`$ $("amount") is ${result.conversion_rates.AUD}`);
+      console.log("made it!");
     }, function(error) {
       $('#showErrors').text(`There was an error processing your request: ${error}`);
       console.log("made it!");
