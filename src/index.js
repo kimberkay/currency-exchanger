@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import  ExchangeRateAPI from './ExchangeAPI.js';
 
+
+
 function clearFields() {
   $('#amount').val("");
   $('#showErrors').text("");
@@ -16,7 +18,20 @@ $(document).ready(function() {
     event.preventDefault();
     let usDollars = $("#amount").val();
     let currency = $("#pickCurrency").val();
-    function conversion(amount,currency) {
+    clearFields();
+    let promise = ExchangeRateAPI.getRate(currency);
+    promise.then(function(response) {
+      const result = JSON.parse(response); 
+      $('#showConversion').text(` is ${result}`);
+      console.log("made it!");
+      console.log(currency);
+    }, function(error) {
+      $('#showErrors').text(`There was an error processing your request: ${error}`);
+    });
+  });
+});
+
+/*      function conversion(amount) {
         if (currency === AUD) {
          return result.conversion_rates.AUD * usDollars;
        } else if (currency === EUR) {
@@ -28,15 +43,4 @@ $(document).ready(function() {
         } else {
           return result.conversion_rates.GBP * usDollars;
         }
-      } 
-    clearFields();
-    let promise = ExchangeRateAPI.getRate();
-    promise.then(function(response) {
-      const result = JSON.parse(response);
-      $('#showConversion').text(` is ${result.conversion_rates.AUD}`);
-      console.log("made it!");
-    }, function(error) {
-      $('#showErrors').text(`There was an error processing your request: ${error}`);
-    });
-  });
-});
+      }*/
