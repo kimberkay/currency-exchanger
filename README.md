@@ -1,8 +1,8 @@
-# _Tasty Plant Pizza Co._
+# _Currency Exchanger._
 
 #### By _**Kim Brannian**_
 
-#### _A website for the Tasty Plant Pizza Co.._
+#### _A website to convert USD's to other D's.._
 
 ## Technologies Used
 
@@ -25,39 +25,12 @@
 
 ## Description
 
-_A website that will allow users to order a basic plant-based pizza and add toppings of their choice._
-
-
-## Test
-
-  * _Describe: Pizza ()
-    Test: It will create a Pizza constructor with properties for size and toppings
-    Code: function Pizza(size, toppings){
-          this.size = size;
-          this.toppings = toppings;
-          this.price = 22;
-          }
-    Expected Output: testPizza {size: 'medium', toppings: Array(1), price: 22}
-
-    Describe: Pizza.prototype.cost ()
-    Test: It will create a Pizza.prototype for the cost of pizza when size is selected
-    Code: Pizza.prototype.finalPrice = function() {
-            if (this.size === "medium") {
-            this.price += 0;
-          } else if (this.size === "large") {
-            this.price += 5;
-            }
-    Expected Output: testPizza2 {size: 'large', toppings: Array(1), price: 27}
-
-    Describe: Pizza.prototype.cost ()
-    Test: It will use the Pizza.prototype to add to the cost of pizza based on toppings choice.
-    Code: 
-          
+_A website that will allow users to input a US dollar amount to see how it converts to another currency._
 
 
 ## Setup/Installation Requirements
 
-* _Navigate to https://github.com/kimberkay/tasty.plant.pizza_
+* _Navigate to https://github.com/kimberkay/currency-exchanger_
 * _Click on the green "Code" button and copy the repository URL or click on the copy button_
 * _Open the terminal on your desktop_
 * _Once in the terminal, use it to navigate to your desktop folder_
@@ -68,7 +41,7 @@ _A website that will allow users to order a basic plant-based pizza and add topp
 
 ## Known Bugs
 
-* _Too many bugs_
+* _Developer environment is not liking having the API key wrapped up in .env. Getting an error 403 when calling the exchange rate API_
 
 ## License
 
