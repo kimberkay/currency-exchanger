@@ -22,7 +22,10 @@ $(document).ready(function() {
     let promise = ExchangeRateAPI.getRate(currency);
     promise.then(function(response) {
       const result = JSON.parse(response); 
-      $('#showConversion').text(` is ${result}`);
+      let showIT = function conversion(result,usDollars) {
+        return result * usDollars;
+      };
+      $('#showConversion').text(`${showIT}`);
       console.log("made it!");
       console.log(currency);
     }, function(error) {
